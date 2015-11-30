@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="plugs/keyboard.css" />
+    <script src="lib/zepto.min.js"></script>
+    <script src="plugs/keyboard.js"></script>
+    <style>
+    	label{display:inline-block; width: 70px;}
+    </style>
+</head>
+<body>
+	<ul class="content-wrapper">
+		<li>
+			<label>手机号：</label>
+			<span class="eui-keyboard-input" maxlength="12"></span>			
+		</li>
+		<li>
+			<label>金额：</label>
+			<span class="eui-keyboard-input" maxlength="12"></span>
+		</li>
+		<li>
+			<label>账号:</label>
+			<select><option>100002</option><option>100003</option></select>
+		</li>
+		<li>
+			<label>女</label>
+			<input type="radio" name="sex"/> 
+			<label>男</label>
+			<input type="radio" name="sex"/>
+		</li>
+		<li>
+			<label>测试</label>
+			<span style="margin-top: 400px;" class="eui-keyboard-input" maxlength="12"></span>
+		</li>
+	</ul>
+	<script>
+		$('.eui-keyboard-input').keyboard({
+			keyup: function(inputValue,key){
+				console.log('当前值：' + inputValue);
+				console.log('按了：' + key);
+			},
+			change: function(inputValue){
+				console.log('变了，当前值：' + inputValue);
+			},
+			blur: function(inputValue){
+				console.log('确定' + inputValue);
+			},
+			conflictElms:['.account','.sex']
+		});
+	</script>
+</body>
+</html>
